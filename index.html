@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authenticate to Intune</title>
+    <script>
+        function doSubmit(){
+            let myform = document.getElementById("thisForm");
+            let tenantID = document.getElementById("tenant_id");
+            myform.action = "https://login.microsoftonline.com/" + tenantID.value + "/oauth2/v2.0/authorize";
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="tenant_id">Tenant ID: </label>
+        <input type="text" id='tenant_id' />
+    </form>
+    <form action="localhost" method="get" id="thisForm" onsubmit="doSubmit()">
+        <label for="client_id">Client ID: </label>
+        <input type="text" id=client_id name="client_id" />
+        <input type="hidden" name="response_type" value="code" />
+        <input type="hidden" name="scope" value="user.read" />
+        <input type="hidden" name="redirect_uri" value="https://intune.coryknox.dev/callback" />
+    </form>
+</body>
+</html>
