@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Intune</title>
+</head>
+<body>
+<p id='code'>
+
+</p>    
+</body>
+<script>
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    document.getElementById('code').innerHTML = vars['code'];
+</script>
+</html>
